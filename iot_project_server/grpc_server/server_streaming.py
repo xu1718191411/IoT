@@ -20,20 +20,25 @@ class IoT(iot_pb2_grpc.IoT):
 
     def ServerStreamingMethod(self, request, context):
         print("ServerStreamingMethod message= %s" % request.request_data)
-
         def response_messages():
             while True:
                 try:
                     if self.ser.in_waiting > 0:
                         line = self.ser.readline().decode('utf-8').rstrip()
-                        data = json.loads(line)
-                        print(data["moisture"])
-                        responseData = iot_pb2.ResponseData(moisture=int(data["moisture"]))
-                        response = iot_pb2.Response(ResponseData=responseData)
-                        yield response
-
                 except Exception as e:
                     print(e)
+                    context.set_details("error at serial communication with Arduino")
+                    context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
+                    return response
+                try:
+                    data = json.loads(line)
+                    print(data["moisture"])
+                    responseData = iot_pb2.ResponseData(moisture=int(data["moisture"]))
+                    response = iot_pb2.Response(ResponseData=responseData)
+                    yield response
+
+                except Exception as e:
+                    print("error at parsing response from arduino")
 
         return response_messages()
 
@@ -47,7 +52,6 @@ def serve():
     server.add_insecure_port('0.0.0.0:50051')
     server.start()
     server.wait_for_termination()
-
 
 if __name__ == '__main__':
     logging.basicConfig()
