@@ -14,7 +14,6 @@ def initSerail() -> serial.SerialBase:
     return ser
 
 class IoT(iot_pb2_grpc.IoT):
-
     def __init__(self, ser: serial.SerialBase):
         self.ser = ser
 
@@ -39,15 +38,12 @@ class IoT(iot_pb2_grpc.IoT):
 
                 except Exception as e:
                     print("error at parsing response from arduino")
-
         return response_messages()
 
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-
     ser = initSerail()
-
     iot_pb2_grpc.add_IoTServicer_to_server(IoT(ser), server)
     server.add_insecure_port('0.0.0.0:50051')
     server.start()

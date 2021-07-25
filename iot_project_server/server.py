@@ -1,11 +1,8 @@
 #!/usr/bin/env python3
-import serial
 import RPi.GPIO as GPIO
 from flask import Flask
 app = Flask(__name__)
 
-ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
-ser.flush()
 GPIO.cleanup()
 
 @app.route('/')
