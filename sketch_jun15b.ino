@@ -7,7 +7,6 @@ void setup() {
   Serial.begin(9600);
   pinMode(sensor_pin, INPUT);  //setup for the soil moisture senor aka INPUt
   pinMode(pump, OUTPUT);      //setup for the pump aka   OUTPUT
-  Serial.println("Reading From the Sensor ...");
   delay(1000);  //1 second delay
   }
 
