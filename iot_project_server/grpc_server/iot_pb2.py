@@ -12,14 +12,13 @@ _sym_db = _symbol_database.Default()
 
 
 
-
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='iot.proto',
   package='grpc_test',
   syntax='proto3',
   serialized_options=b'\n\033io.grpc.examples.helloworldB\017HelloWorldProtoP\001\242\002\003HLW',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\tiot.proto\x12\tgrpc_test\"\x1f\n\x07Request\x12\x14\n\x0crequest_data\x18\x02 \x01(\t\" \n\x0cResponseData\x12\x10\n\x08moisture\x18\x01 \x01(\x03\"9\n\x08Response\x12-\n\x0cResponseData\x18\x02 \x01(\x0b\x32\x17.grpc_test.ResponseData2I\n\x03IoT\x12\x42\n\x15ServerStreamingMethod\x12\x12.grpc_test.Request\x1a\x13.grpc_test.Response0\x01\x42\x36\n\x1bio.grpc.examples.helloworldB\x0fHelloWorldProtoP\x01\xa2\x02\x03HLWb\x06proto3'
+  serialized_pb=b'\n\tiot.proto\x12\tgrpc_test\"\x1f\n\x07Request\x12\x14\n\x0crequest_data\x18\x02 \x01(\t\"4\n\x0cResponseData\x12\x11\n\tmoisture0\x18\x01 \x01(\x03\x12\x11\n\tmoisture1\x18\x02 \x01(\x03\"9\n\x08Response\x12-\n\x0cResponseData\x18\x02 \x01(\x0b\x32\x17.grpc_test.ResponseData2I\n\x03IoT\x12\x42\n\x15ServerStreamingMethod\x12\x12.grpc_test.Request\x1a\x13.grpc_test.Response0\x01\x42\x36\n\x1bio.grpc.examples.helloworldB\x0fHelloWorldProtoP\x01\xa2\x02\x03HLWb\x06proto3'
 )
 
 
@@ -66,8 +65,15 @@ _RESPONSEDATA = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='moisture', full_name='grpc_test.ResponseData.moisture', index=0,
+      name='moisture0', full_name='grpc_test.ResponseData.moisture0', index=0,
       number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='moisture1', full_name='grpc_test.ResponseData.moisture1', index=1,
+      number=2, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -85,7 +91,7 @@ _RESPONSEDATA = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=57,
-  serialized_end=89,
+  serialized_end=109,
 )
 
 
@@ -116,8 +122,8 @@ _RESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=91,
-  serialized_end=148,
+  serialized_start=111,
+  serialized_end=168,
 )
 
 _RESPONSE.fields_by_name['ResponseData'].message_type = _RESPONSEDATA
@@ -157,8 +163,8 @@ _IOT = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=150,
-  serialized_end=223,
+  serialized_start=170,
+  serialized_end=243,
   methods=[
   _descriptor.MethodDescriptor(
     name='ServerStreamingMethod',

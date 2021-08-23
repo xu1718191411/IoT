@@ -5,7 +5,7 @@ import logging
 import grpc
 import iot_pb2
 import iot_pb2_grpc
-
+import time
 import serial
 
 def initSerail() -> serial.SerialBase:
@@ -31,12 +31,17 @@ class IoT(iot_pb2_grpc.IoT):
                     return response
                 try:
                     data = json.loads(line)
-                    print(data["moisture"])
-                    responseData = iot_pb2.ResponseData(moisture=int(data["moisture"]))
+                    # print(data)
+                    # print(data["moisture0"])
+                    responseData = iot_pb2.ResponseData(
+                        moisture0=int(data["moisture0"]),
+                        moisture1=int(data["moisture1"]),
+                    )
                     response = iot_pb2.Response(ResponseData=responseData)
                     yield response
 
                 except Exception as e:
+                    print(e)
                     print("error at parsing response from arduino")
         return response_messages()
 

@@ -32,16 +32,18 @@ class IoTComponent extends StatefulWidget {
 }
 
 class IoTComponentState extends State<IoTComponent> {
-  String moisture = "";
+  String moisture0 = "";
+  String moisture1 = "";
   bool grpcError = false;
 
   @override
   void initState(){
     // TODO: implement initState
     super.initState();
-    fetchMoisture((String v, bool ok) => {
+    fetchMoisture((String v0,String v1, bool ok) => {
           setState(() {
-        moisture = v;
+        moisture0 = v0;
+        moisture1 = v1;
         grpcError = ok;
       })
     });
@@ -53,9 +55,10 @@ class IoTComponentState extends State<IoTComponent> {
         child: const Text('reconnection'),
         onPressed: () async {
 
-          fetchMoisture((String v, bool ok) => {
+          fetchMoisture((String v0, String v1, bool ok) => {
               setState(() {
-            moisture = v;
+            moisture0 = v0;
+            moisture1 = v1;
             grpcError = ok;
           })
         });
@@ -77,13 +80,14 @@ class IoTComponentState extends State<IoTComponent> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 moistureStatus(grpcError),
-                Text("moisture:" + moisture),
+                Text("スイカ畑:" + moisture0),
+                Text("モロヘイヤ畑:" + moisture1),
             ElevatedButton(
-              child: const Text('open'),
+              child: const Text('スイカ芽水やり①'),
               onPressed: ()  async {
                 try{
-                  print("open");
-                  final uri = Uri.http(serverUrl,"open");
+                  print("open0");
+                  final uri = Uri.http(serverUrl,"open0");
                   final response = await http.get(uri);
                   print(response.body);
                 }catch (e){
@@ -92,7 +96,46 @@ class IoTComponentState extends State<IoTComponent> {
               },
             ),
             ElevatedButton(
-              child: const Text('close'),
+              child: const Text('モロヘイヤ水やり'),
+              onPressed: ()  async {
+                try{
+                  print("open1");
+                  final uri = Uri.http(serverUrl,"open1");
+                  final response = await http.get(uri);
+                  print(response.body);
+                }catch (e){
+                  print(e);
+                }
+              },
+            ),
+                ElevatedButton(
+                  child: const Text('スイカ芽水やり②'),
+                  onPressed: ()  async {
+                    try{
+                      print("open2");
+                      final uri = Uri.http(serverUrl,"open2");
+                      final response = await http.get(uri);
+                      print(response.body);
+                    }catch (e){
+                      print(e);
+                    }
+                  },
+                ),
+                ElevatedButton(
+                  child: const Text('スイカ水やり'),
+                  onPressed: ()  async {
+                    try{
+                      print("open3");
+                      final uri = Uri.http(serverUrl,"open3");
+                      final response = await http.get(uri);
+                      print(response.body);
+                    }catch (e){
+                      print(e);
+                    }
+                  },
+                ),
+            ElevatedButton(
+              child: const Text('すべてな水やりを止めます'),
               onPressed: () async {
 
                 try{

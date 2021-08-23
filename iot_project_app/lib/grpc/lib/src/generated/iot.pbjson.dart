@@ -22,12 +22,13 @@ final $typed_data.Uint8List requestDescriptor = $convert.base64Decode('CgdSZXF1Z
 const ResponseData$json = const {
   '1': 'ResponseData',
   '2': const [
-    const {'1': 'moisture', '3': 1, '4': 1, '5': 3, '10': 'moisture'},
+    const {'1': 'moisture0', '3': 1, '4': 1, '5': 3, '10': 'moisture0'},
+    const {'1': 'moisture1', '3': 2, '4': 1, '5': 3, '10': 'moisture1'},
   ],
 };
 
 /// Descriptor for `ResponseData`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List responseDataDescriptor = $convert.base64Decode('CgxSZXNwb25zZURhdGESGgoIbW9pc3R1cmUYASABKANSCG1vaXN0dXJl');
+final $typed_data.Uint8List responseDataDescriptor = $convert.base64Decode('CgxSZXNwb25zZURhdGESHAoJbW9pc3R1cmUwGAEgASgDUgltb2lzdHVyZTASHAoJbW9pc3R1cmUxGAIgASgDUgltb2lzdHVyZTE=');
 @$core.Deprecated('Use responseDescriptor instead')
 const Response$json = const {
   '1': 'Response',

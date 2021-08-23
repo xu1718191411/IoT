@@ -10,7 +10,7 @@ def server_streaming_method(stub):
         print("message=%s" % response.ResponseData)
 
 def run():
-    url = '192.168.2.104:50051'
+    url = '192.168.2.110:50051'
     with grpc.insecure_channel(url) as channel:
         stub = iot_pb2_grpc.IoTStub(channel)
         server_streaming_method(stub)

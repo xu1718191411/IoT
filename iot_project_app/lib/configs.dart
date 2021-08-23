@@ -1,3 +1,3 @@
-String serverUrl = "192.168.2.101:5000";
-String grpcUrl = '192.168.2.101';
-int grpcPort = 50051;
+String serverUrl = "df8b-103-67-223-42.ngrok.io";
+String grpcUrl = '0.tcp.jp.ngrok.io';
+int grpcPort = 18768;

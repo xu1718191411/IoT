@@ -59,17 +59,22 @@ class Request extends $pb.GeneratedMessage {
 
 class ResponseData extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ResponseData', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'grpc_test'), createEmptyInstance: create)
-    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'moisture')
+    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'moisture0')
+    ..aInt64(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'moisture1')
     ..hasRequiredFields = false
   ;
 
   ResponseData._() : super();
   factory ResponseData({
-    $fixnum.Int64? moisture,
+    $fixnum.Int64? moisture0,
+    $fixnum.Int64? moisture1,
   }) {
     final _result = create();
-    if (moisture != null) {
-      _result.moisture = moisture;
+    if (moisture0 != null) {
+      _result.moisture0 = moisture0;
+    }
+    if (moisture1 != null) {
+      _result.moisture1 = moisture1;
     }
     return _result;
   }
@@ -95,13 +100,22 @@ class ResponseData extends $pb.GeneratedMessage {
   static ResponseData? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $fixnum.Int64 get moisture => $_getI64(0);
+  $fixnum.Int64 get moisture0 => $_getI64(0);
   @$pb.TagNumber(1)
-  set moisture($fixnum.Int64 v) { $_setInt64(0, v); }
+  set moisture0($fixnum.Int64 v) { $_setInt64(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasMoisture() => $_has(0);
+  $core.bool hasMoisture0() => $_has(0);
   @$pb.TagNumber(1)
-  void clearMoisture() => clearField(1);
+  void clearMoisture0() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $fixnum.Int64 get moisture1 => $_getI64(1);
+  @$pb.TagNumber(2)
+  set moisture1($fixnum.Int64 v) { $_setInt64(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasMoisture1() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMoisture1() => clearField(2);
 }
 
 class Response extends $pb.GeneratedMessage {

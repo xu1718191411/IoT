@@ -5,7 +5,7 @@ import 'package:grpc/grpc.dart';
 import 'generated/iot.pbgrpc.dart';
 import 'generated/iot.pb.dart';
 
-final url = '192.168.2.104';
+final url = '192.168.2.110';
 final port = 50051;
 
 Future<void> main(List<String> args) async {
