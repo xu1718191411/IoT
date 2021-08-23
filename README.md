@@ -1,4 +1,4 @@
-# IoT
+# Raspberry PI
 
 #### Flutter App
 
@@ -14,3 +14,8 @@
 
 - cd iot_project_server/grpc_server/
 - python3.6 server_streaming.py
+
+
+# Arduino
+
+sketch_jun15b.ino
